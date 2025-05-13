@@ -1,0 +1,126 @@
+/* Styles for Alpha-specific UI elements */
+
+/* Status badges */
+.badge {
+    display: inline-block;
+    padding: 0.4em 0.6em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    color: #fff;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+}
+
+/* Payment rows styling */
+.payment-pending {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.payment-confirmed {
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Effort coloring */
+.effort1 {
+    color: #28a745;  /* Green - Lucky (<100%) */
+    font-weight: bold;
+}
+
+.effort2 {
+    color: #ffc107;  /* Yellow - Average (100-200%) */
+    font-weight: bold;
+}
+
+.effort3 {
+    color: #fd7e14;  /* Orange - Unlucky (200-500%) */
+    font-weight: bold;
+}
+
+.effort4 {
+    color: #dc3545;  /* Red - Very Unlucky (>500%) */
+    font-weight: bold;
+}
+
+/* Tooltip styles */
+.tooltip-icon {
+    display: inline-block;
+    color: #1DC7EA;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.tooltip-icon:hover {
+    color: #1a9cb3;
+}
+
+.tooltip-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    color: #333;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-container:hover .tooltip-content {
+    display: block;
+}
+
+/* Effort explanation box */
+.effort-explanation {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.effort-explanation h5 {
+    margin-top: 0;
+    color: #495057;
+}
+
+.effort-explanation ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.effort-explanation li {
+    margin-bottom: 5px;
+}
+
+.effort-explanation .close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 18px;
+    color: #6c757d;
+}
