@@ -411,7 +411,7 @@ function loadMinersList() {
 }
 
 function loadBlocksList() {
-    return $.ajax(API + 'pools/' + currentPool + '/blocks?pageSize=10')
+    return $.ajax(API + 'pools/' + currentPool + '/blocks?pageSize=100')
         .done(function (data) {
             var blockList = '<thead><tr><th rowspan="2">Date &amp; Time</th><th>Block Finder</th><th>Height</th><th>Difficulty</th><th>Effort <i class="fa fa-info-circle tooltip-icon" onclick="showEffortInfo()"></i></th><th>Status</th><th>Reward</th><th>Confirmation</th></tr></thead><tbody>';
             if (data.length > 0) {
