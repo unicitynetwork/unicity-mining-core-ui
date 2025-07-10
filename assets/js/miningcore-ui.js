@@ -63,8 +63,13 @@ function dateConvertor(date){
    };  
 
    var newDateFormat = new Date(date).toLocaleDateString("en-US", options); 
-   var newTimeFormat = new Date(date).toLocaleTimeString();  
-   var dateAndTime = newDateFormat +' '+ newTimeFormat        
+   var newTimeFormat = new Date(date).toLocaleTimeString();
+   
+   // Get timezone offset in hours
+   var offset = -new Date(date).getTimezoneOffset() / 60;
+   var offsetStr = offset >= 0 ? "+" + offset : offset.toString();
+   
+   var dateAndTime = newDateFormat +' '+ newTimeFormat + ' (UTC' + offsetStr + ')'        
    return dateAndTime
 }
 
@@ -416,7 +421,7 @@ function loadBlocksList() {
             var blockList = '<thead><tr><th rowspan="2">Date &amp; Time</th><th>Block Finder</th><th>Height</th><th>Difficulty</th><th>Effort <i class="fa fa-info-circle tooltip-icon" onclick="showEffortInfo()"></i></th><th>Status</th><th>Reward</th><th>Confirmation</th></tr></thead><tbody>';
             if (data.length > 0) {
                 $.each(data, function(index, value) {
-		var createDate = convertLocalDateToUTCDate(new Date(value.created),false);
+		var createDate = new Date(value.created);
 		var effort = Math.round(value.effort * 100);
 		var effortClass = "";
 		if (effort < 100) {
@@ -430,7 +435,7 @@ function loadBlocksList() {
 		}
 	var calcs = Math.round(value.confirmationProgress * 100);
 		blockList += "<tr>";
-		blockList += "<td>" + createDate + "</td>";
+		blockList += "<td>" + dateConvertor(createDate) + "</td>";
 		blockList += "<td>" + value.miner.substring(0, 8) + " &hellip; " + value.miner.substring(value.miner.length - 8) + "</td>";
 		blockList += "<td><a href='" + value.infoLink + "' target='_blank'>" + value.blockHeight + "</a></td>";
 		blockList += "<td>" + _formatter(value.networkDifficulty, 5, "") + "</td>";
